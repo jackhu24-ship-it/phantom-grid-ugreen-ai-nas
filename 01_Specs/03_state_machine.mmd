@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Validating: task_in
+    Validating --> Running: gate_pass
+    Validating --> Rejected: gate_fail
+    Running --> Fused: vram_over_50GB
+    Running --> Purging: done
+    Fused --> Purging: forced
+    Purging --> Idle: zdr_0MB
+    Rejected --> Idle: logged

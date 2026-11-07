@@ -1,0 +1,8 @@
+flowchart TD
+    Op["Operator / Judge"] --> UI["UGREEN AI NAS Hackathon Console"]
+    UI --> Orch["Dual-Track Orchestrator (ASIL-D)"]
+    Orch --> Core["Core Engine (Track B)"]
+    Orch --> Guard["50GB VRAM Fuse + Policy Gate"]
+    Core --> Out["Verified Result"]
+    Guard --> ZDR["ZDR Wipe 0xAA -> 0x00 (0.00 MB)"]
+    Out --> ZDR

@@ -1,0 +1,26 @@
+{
+  "tournament_id": "202611_UGREEN_AI_NAS_Hackathon",
+  "tournament_name": "UGREEN Hackathon 2026 on AI NAS: Bring Your Skills to UGOS",
+  "project_title": "PHANToM GRID :: Sovereign Edge Guard (phantom-sovereign-guard)",
+  "official_portal": "https://ugreenhackathon.devpost.com/",
+  "status": "SUBMITTED",
+  "round": "Round 1 (Initial Screening)",
+  "submitter": {
+    "name": "Jack Hu",
+    "role": "Solo Architect / Supreme HITL Sovereign",
+    "type": "Individual",
+    "country": "Taiwan"
+  },
+  "submitted_at": "2026-10-26T09:13:40+08:00",
+  "submission_assets": {
+    "skill_package_zip": "phantom-sovereign-guard.zip",
+    "proposal_pdf": "UGREEN_AI_NAS_Round1_Project_Proposal.pdf",
+    "short_pitch": "Automated zero-residue privacy compliance audit, sensitive document classification, and encrypted local knowledge indexing for UGREEN UGOS AI NAS."
+  },
+  "audit_result": {
+    "official_checker": "static-pass (0 errors, 0 warnings)",
+    "proposal_word_count": 473,
+    "proposal_page_count": 2,
+    "dual_release_seal": "COMMANDER JACK HU ✕ EXECUTIVE SECRETARY XIAOMI"
+  }
+}

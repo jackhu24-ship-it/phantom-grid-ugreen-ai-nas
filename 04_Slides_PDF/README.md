@@ -1,0 +1,1 @@
+# 04_Slides_PDF\n\nBinary assets are archived in sovereign vault per Rule 91 parity.

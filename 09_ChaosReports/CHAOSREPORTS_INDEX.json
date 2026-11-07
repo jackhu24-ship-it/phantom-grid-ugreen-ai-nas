@@ -1,0 +1,8 @@
+{
+  "tournament": "202611_UGREEN_AI_NAS_Hackathon",
+  "drawer": "09_ChaosReports",
+  "purpose": "Chaos stress reports",
+  "vram_limit_gb": 50,
+  "zdr_residual_mb": 0.0,
+  "status": "INDEXED"
+}

@@ -1,0 +1,10 @@
+flowchart LR
+    subgraph Untrusted["Untrusted Zone"]
+        In["External Input"]
+    end
+    subgraph Trusted["ASIL-D Trusted Zone"]
+        Gate["Schema + Policy Gate"]
+        Run["Sandboxed Execution"]
+        Wipe["ZDR Purge"]
+    end
+    In --> Gate --> Run --> Wipe

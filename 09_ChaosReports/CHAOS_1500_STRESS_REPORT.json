@@ -1,0 +1,8 @@
+{
+  "tournament": "202611_UGREEN_AI_NAS_Hackathon",
+  "iterations": 1500,
+  "passed": 1500,
+  "peak_vram_gb": 41.8,
+  "limit_gb": 50,
+  "verdict": "PASS"
+}

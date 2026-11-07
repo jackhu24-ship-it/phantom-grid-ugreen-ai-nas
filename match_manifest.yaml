@@ -1,0 +1,38 @@
+match_id: "202611_UGREEN_AI_NAS_Hackathon"
+tournament_title: "UGREEN Hackathon 2026 on AI NAS: Bring Your Skills to UGOS"
+organizer: "UGREEN (Devpost)"
+submission_deadline_round_1: "2026-11-16 15:45 GMT+8 (2026-11-15 11:45 PM PT)"
+finalist_announcement: "2026-11-21"
+round_2_testing_period: "2026-11-22 to 2026-11-30"
+winners_announced: "2026-12-06"
+prize_pool: "$46,000 USD (Gold Award $20,000 / Silver $10,000 / Bronze $6,000 / Most Creative $5,000 x 2)"
+official_portal: "https://ugreenhackathon.devpost.com/"
+participation_mode: "Solo Developer (Eligible Individual: Supreme Commander Jack Hu)"
+target_track: "Workflow & Innovation (Private Edge Sovereign Agent)"
+phantom_core_weapon: "PHANToM GRID Rust C-ABI Edge Microkernel ✕ ZDR Memory Scrub (0xAA -> 0x00) ✕ Uliya Agentic SKILL.md Orchestration"
+
+round_1_requirements:
+  - "Pre-test Skill Package (ZIP) adhering to Uliya Skill Standard"
+  - "Project Proposal (PDF) addressing core architecture within 500 words"
+  - "Open source repository (GitHub) with clear deployment guide"
+
+required_deliverables:
+  - "01_Specs"
+  - "02_Architecture"
+  - "03_SourceCode"
+  - "04_Slides_PDF"
+  - "05_DemoVideo"
+  - "06_Tests"
+  - "07_SubmissionPackage"
+  - "08_LiveApp"
+  - "09_Docs"
+  - "10_Releases"
+
+compliance_invariants:
+  spec_first: true
+  hardware_free_round_1: true
+  remote_nas_allocated_round_2: true
+  vram_ceiling_gb: 50.0
+  zdr_zero_residue_mb: 0.000000
+  vertical_coverage_ratio: 0.78
+  co_signed_by: "COMMANDER JACK HU ✕ EXECUTIVE SECRETARY XIAOMI"

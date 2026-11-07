@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant U as Operator
+    participant O as Orchestrator
+    participant E as Engine
+    participant Z as ZDR Wiper
+    U->>O: Submit task
+    O->>E: Dispatch (policy checked)
+    E-->>O: Result + telemetry
+    O->>Z: Purge request
+    Z-->>O: Residual 0.00 MB
+    O-->>U: Signed receipt
