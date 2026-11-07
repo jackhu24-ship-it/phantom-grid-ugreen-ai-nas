@@ -1,11 +1,23 @@
 sequenceDiagram
-    participant U as Operator
-    participant O as Orchestrator
-    participant E as Engine
-    participant Z as ZDR Wiper
-    U->>O: Submit task
-    O->>E: Dispatch (policy checked)
-    E-->>O: Result + telemetry
-    O->>Z: Purge request
-    Z-->>O: Residual 0.00 MB
-    O-->>U: Signed receipt
+    autonumber
+    participant U as Operator / Auditor
+    participant O as Track A Orchestrator (ASIL-D)
+    participant F as file-agent (ug-filesystem)
+    participant D as document-agent (ug-document)
+    participant N as Local NPU Engine
+    participant K as knowledge-agent (ug-knowledge)
+    participant Z as 2-Pass ZDR Wiper
+
+    U->>O: State Audit Intent ('Audit sensitive tax and medical files')
+    Note over O: Validate AST schema and platform permissions
+    O->>F: Request non-destructive directory scan
+    F-->>O: Return file metadata inventory (0 raw mutations)
+    O->>D: Dispatch batch content extraction and classification
+    D->>N: Local inference: PII redaction and sensitivity scoring
+    N-->>D: Privacy classification tags (Confidential / Public)
+    D-->>O: Parsed compliant content artifacts
+    O->>K: Direct secure indexing into private vault
+    K-->>O: Local vector index created (0% cloud leak)
+    O->>Z: Trigger session zeroization protocol
+    Z-->>O: Physical wipe confirmed (0xAA -> 0x00, 0.00 MB residual)
+    O-->>U: Return signed WORM audit receipt + summary

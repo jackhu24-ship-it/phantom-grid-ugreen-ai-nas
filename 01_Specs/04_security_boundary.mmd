@@ -1,10 +1,37 @@
 flowchart LR
-    subgraph Untrusted["Untrusted Zone"]
-        In["External Input"]
+    subgraph UntrustedZone["Untrusted External Domain"]
+        RawIn["Untrusted Directory Stream & Prompt Injections"]
+        CloudAPI["Public Multi-Tenant Cloud (BLOCKED: 0.00% Leak)"]
     end
-    subgraph Trusted["ASIL-D Trusted Zone"]
-        Gate["Schema + Policy Gate"]
-        Run["Sandboxed Execution"]
-        Wipe["ZDR Purge"]
+
+    subgraph SandboxedDMZ["UGOS DMZ & Security Policy Gate"]
+        Gate["Uliya Skill Kit Schema Validator"]
+        AST["Static AST Safe Delegation Contract"]
+        Watch["Execution Step Budget (<= 64 Steps)"]
     end
-    In --> Gate --> Run --> Wipe
+
+    subgraph SovereignCore["ASIL-D Sovereign Trusted Core"]
+        Orch["Track A Orchestrator"]
+        FA["file-agent"]
+        DA["document-agent"]
+        KA["knowledge-agent"]
+        NPU["Local NPU Embedding Engine"]
+        Vault["Local AES-256 Knowledge Store"]
+    end
+
+    subgraph ZDRPurgeZone["Physical Destruction & Audit Layer"]
+        Wiper["2-Pass ZDR Wiper (0xAA -> 0x00)"]
+        Receipt["WORM Audit Receipt"]
+    end
+
+    RawIn --> Gate
+    Gate --> AST --> Watch --> Orch
+    Orch --> FA
+    Orch --> DA
+    Orch --> KA
+    DA --> NPU --> Vault
+    KA --> Vault
+    Vault --> Wiper
+    Orch --> Wiper
+    Wiper --> Receipt
+    SovereignCore x-.-x CloudAPI

@@ -1,10 +1,25 @@
 stateDiagram-v2
-    [*] --> Idle
-    Idle --> Validating: task_in
-    Validating --> Running: gate_pass
-    Validating --> Rejected: gate_fail
-    Running --> Fused: vram_over_50GB
-    Running --> Purging: done
-    Fused --> Purging: forced
-    Purging --> Idle: zdr_0MB
-    Rejected --> Idle: logged
+    [*] --> Idle: Cold Boot & Permission Guard Initialized
+
+    Idle --> Validating: Task submitted / Directory intent
+    Validating --> Running: AST contract verified & VRAM < 50GB
+    Validating --> Rejected: Schema violation / Unauthorized directory
+
+    state Running {
+        [*] --> Scanning
+        Scanning --> Classifying: file_agent inventory complete
+        Classifying --> Vectorizing: document_agent extraction OK
+        Vectorizing --> Indexing: local NPU embeddings generated
+        Indexing --> CompletedInternal: knowledge_agent commit OK
+    }
+
+    Running --> WaitingApproval: Sensitive file mutation requested
+    WaitingApproval --> Running: User HITL approval granted
+    WaitingApproval --> Rejected: Approval denied or timeout
+
+    Running --> Fused: VRAM >= 50.0 GB or loop > 64 steps
+    Running --> Purging: Execution completed successfully
+    Fused --> Purging: Emergency E-STOP physical wipe
+
+    Purging --> Idle: 2-Pass ZDR 0.00 MB confirmed & WORM receipt sealed
+    Rejected --> Idle: Audit failure logged to immutable journal

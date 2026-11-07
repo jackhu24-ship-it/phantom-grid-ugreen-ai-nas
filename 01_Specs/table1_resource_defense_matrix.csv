@@ -1,6 +1,8 @@
-Resource / Risk,Defense Mechanism,Threshold,Verification,Status
-GPU VRAM,Hard fuse in orchestrator,<= 50 GB,Chaos run peak 41.8 GB,PASS
-Residual memory,ZDR double wipe 0xAA -> 0x00,0.00 MB,Post-run scan,PASS
-Untrusted input,Schema + policy gate,100% validated,"1,500 chaos iterations",PASS
-Runaway loop,Watchdog + step budget,<= 64 steps,Loop injection test,PASS
-Delivery gate,Gate-Before-Ship dual seal,all green,UGREEN AI NAS Hackathon gate suite,PASS
+Resource / Defense Domain,Screening & Defense Mechanism,Invariant Threshold,Chaos Verification,Status
+Local NPU Embedding Engine,Quantized local embedding inference,<= 150 ms / batch,Measured 118 ~ 124 ms,PASS
+GPU / Host VRAM Memory,Hardware emergency hard fuse in Orchestrator,<= 50.0 GB,Chaos 52.5GB injection E-STOP,PASS
+Physical Data Retention (ZDR),2-Pass physical overwrite (0xAA -> 0x00),0.00 MB residual,Post-execution byte scan,PASS
+Cloud Air-Gap Telemetry,Physical outbound network socket block,0.00% cloud packet leak,Wireshark live hardware probe,PASS
+AST Contract & Injection Defense,Uliya Skill Kit schema validation,100% compliant (0 err),1500x adversarial prompt suite,PASS
+Execution Loop Watchdog,Step budget limiter & anti-hang circuit,<= 64 discrete steps,Recursive loop injection test,PASS
+Platform Permission Boundary,UGOS system agent role-based access control,Non-destructive read-only,Root write injection attempt,PASS
